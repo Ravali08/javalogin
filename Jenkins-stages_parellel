@@ -16,10 +16,7 @@ label 'maaster'
   label 'node11' 
   }
     steps {
-	sh '''
-	   touch f1
            echo "Stage-2 executing in Node11 node"
-        '''
     }
   } 
 }
