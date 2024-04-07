@@ -1,0 +1,32 @@
+pipeline {
+    agent {
+   label 'node11'
+}
+	stages {
+  stage('Checkout') {
+    steps {
+      git branch: 'master', url: 'https://github.com/Ravali08/javalogin.git'
+    }
+  }
+ 
+  stage('Static_test') {
+    steps {
+      echo "testing in progress"
+    }
+  }
+ 
+  stage('Build') {
+    steps {
+      sh 'mvn clean package'
+    }
+  }
+ 
+  stage('Deploy') {
+    steps {
+        echo "Deployed"
+    }
+  }
+ 
+}
+ 
+}
