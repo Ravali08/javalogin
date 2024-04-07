@@ -1,27 +1,20 @@
 pipeline {
-    agent none
-triggers {
-  cron '* * * * *'
-}
+    agent any
 	stages {
-  
+  Parallel{
   stage('Static_1') {
-  agent { 
-label 'maaster' 
-}
+  
     steps {
       echo "Stage-1 executing in master node"
     }
   }
  
   stage('Static_2') {
-  agent { 
-  label 'node11' 
-  }
+  
     steps {
            echo "Stage-2 executing in Node11 node"
     }
   } 
 }
- 
+ }
 }
