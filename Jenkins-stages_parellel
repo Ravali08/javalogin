@@ -11,7 +11,7 @@ label 'maaster'
     }
   }
  
-  stage(Static_2') {
+  stage('Static_2') {
   agent { 
   label 'node11' 
   }
