@@ -2,18 +2,19 @@ pipeline {
     agent any
 	stages {
   stage('Parallel_jobs') {
-  Parallel{
-	stage('Stage-1A'){
-    		steps {
-      		echo "Stage-1 executing in master node"
-    		}
-  	}
+  	Parallel{
+		stage('Stage-1A'){
+    			steps {
+      			echo "Stage-1 executing in master node"
+    			}
+  		}
  
-  	stage('Stage_1B') {
-		steps {
-           	echo "Stage-2 executing in Node11 node"
-   		}
- 	 } 
+  		stage('Stage_1B') {
+			steps {
+           		echo "Stage-2 executing in Node11 node"
+   			}
+ 		} 
+ 	}
  }
- }
+}
 }
