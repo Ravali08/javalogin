@@ -16,8 +16,10 @@ label 'maaster'
   label 'node11' 
   }
     steps {
-	'''echo "anything"
-      sh 'Stage-2 executing in Node11 node''''
+	sh '''
+	    echo "anything"
+           echo "Stage-2 executing in Node11 node"
+        '''
     }
   } 
 }
