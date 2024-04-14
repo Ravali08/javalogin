@@ -16,8 +16,8 @@ pipeline {
             emailext (
                 subject: "Jenkins Build ${currentBuild.result}: ${env.JOB_NAME}",
                 body: "Build ${currentBuild.result}: ${env.BUILD_URL}",
-                to: 'bandiravali1111@gmail.com',
-                replyTo: "bandiravali1111@gmail.com",
+                to: 'brsra21@gmail.com',
+                replyTo: "brsra21@gmail.com",
                 mimeType: 'text/html'
             )
             }
