@@ -1,0 +1,24 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Build') {
+            steps {
+                // Your build steps here
+                echo 'Building...'
+            }
+        }
+    }
+
+    post {
+        always {
+            // Send email notification
+            emailext (
+                subject: "Jenkins Build ${currentBuild.result}: ${env.JOB_NAME}",
+                body: "Build ${currentBuild.result}: ${env.BUILD_URL}",
+                to: "bandiravali1111@gmail.com",
+                replyTo: "bandiravali1111@gmail.com",
+            )
+        }
+    }
+}
