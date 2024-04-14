@@ -1,4 +1,4 @@
-node {
+node('node11') {
     stage('Checkout') {
         git branch: 'master', url: 'https://github.com/Ravali08/javalogin.git'
     }
@@ -9,6 +9,6 @@ node {
         sh 'mvn clean package'
     }
     stage('Deploy') {
-        sh 'rsync -r /home/ubuntu/jenkins/workspace/A3/target/dependency/*.war /etc/tomcat9/tomcat/webapps/'
+        sh 'rsync -r /home/ubuntu/jenkins/workspace/Jenkinsfile.groovy/target/dependency/*.war /opt/tomcat/webapps'
     }
 }
