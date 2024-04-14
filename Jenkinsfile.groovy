@@ -9,6 +9,6 @@ node('node11') {
         sh 'mvn clean package'
     }
     stage('Deploy') {
-        sh 'rsync -r /home/ubuntu/jenkins/workspace/Jenkinsfile.groovy/target/dependency/*.war /opt/tomcat/webapps'
+        sh 'sudo rsync -r /home/ubuntu/workspace/Jenkinsfile.groovy/target/*.war /opt/tomcat/webapps'
     }
 }
