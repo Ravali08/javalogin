@@ -9,6 +9,6 @@ node {
         sh 'mvn clean package'
     }
     stage('Deploy') {
-        sh 'rsync -r target/*.war /etc/tomcat9/tomcat/webapps/"'
+        sh 'rsync -r /home/ubuntu/jenkins/workspace/A3/target/dependency/*.war /etc/tomcat9/tomcat/webapps/'
     }
 }
