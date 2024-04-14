@@ -1,0 +1,33 @@
+pipeline {
+    agent {
+    label 'node11'
+    }
+    stages {
+        stage('Checkout') {
+            steps {
+                git branch: 'master', url: 'https://github.com/Ravali08/java-war-deploy-example.git'
+            }
+        }
+
+        stage('Static_test') {
+            steps {
+              echo "testing in progress"
+            }
+        }
+
+        stage('Build') {
+            steps {
+                sh 'mvn clean package'
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                sh 'sudo rsync -r /home/ubuntu/workspace/Jenkinsfile.groovy/target/*.war /opt/tomcat/webapps'
+                echo "Deployed"
+            }
+        }
+
+    }
+
+}
