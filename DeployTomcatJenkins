@@ -1,0 +1,33 @@
+pipeline {
+    agent {
+    label 'Node1'
+    }
+    stages {
+        stage('Checkout') {
+            steps {
+                git branch: 'master', url: 'https://github.com/Ravali08/java-war-deploy-example.git'
+            }
+        }
+
+        stage('Static_test') {
+            steps {
+              echo "testing in progress"
+            }
+        }
+
+        stage('Build') {
+            steps {
+                sh 'mvn clean package'
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                sh "rync -r /home/ubuntu/jenkins/workspace/j1/target/dependency/webapp-runner.jar /etc/tomcat9/tomcat/webapps/"
+                echo "Deployed"
+            }
+        }
+
+    }
+
+}
