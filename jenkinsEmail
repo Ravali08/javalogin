@@ -15,7 +15,7 @@ pipeline {
             // Send email notification
             emailext (
                 subject: "Jenkins Build ${currentBuild.result}: ${env.JOB_NAME}",
-                body: "Build ${currentBuild.result}: ${env.BUILD_URL}",
+                body: "Build ${currentBuild.result}: ${env.JOB_URL} with BUID number: ${env.BUILD_ID}",
                 to: 'brsra21@gmail.com',
                 replyTo: "brsra21@gmail.com",
                 mimeType: 'text/html'
