@@ -23,7 +23,7 @@ pipeline {
 
         stage('Deploy') {
             steps {
-                sh 'sudo rsync -r /home/ubuntu/workspace/Jenkinsfile.groovy/target/*.war /opt/tomcat/webapps'
+                sh 'sudo rsync -r /home/ubuntu/workspace/Jenkinsfile.groovy/target/*.war /opt/tomcat9/webapps'
                 echo "Deployed"
             }
         }
