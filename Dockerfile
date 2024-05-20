@@ -1,4 +1,4 @@
-FROM tomcat:9.0.64-jdk17-openjdk-slim
+FROM tomcat:9.0.80-jdk21-openjdk-slim-bullseye
 
 COPY ./target/*.war /usr/local/tomcat/webapps/
 
