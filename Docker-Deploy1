@@ -3,20 +3,37 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'master', url: 'https://github.com/Ravali08/java-war-deploy-example.git'
+                git 'https://github.com/Ravali08/javalogin.git'
             }
         }
-
-        stage('Static_test') {
+        stage('Build Docker Image') {
             steps {
-              echo "testing in progress"
+                script {
+                    sh "sudo docker buildx build -t 767663789401.dkr.ecr.ap-south-1.amazonaws.com/private:Jenkins.1.0.${BUILD_NUMBER} ."
+                }
             }
         }
-
-        stage('Build') {
+        stage('Push Docker Image') {
             steps {
-                sh 'docker build -t java:v1 .'
+                script {
+                   sh "sudo docker push -t 767663789401.dkr.ecr.ap-south-1.amazonaws.com/private:Jenkins.1.0.${BUILD_NUMBER}"
+                 }
             }
         }
-}
+        
+        stage('Deploy') {
+            steps {
+                script {
+                   sh "sudo docker rm -f my-app || true"
+                    sh "sudo docker run -itd --name my-app -p 9000:8080 ravali218/test:1.0.${BUILD_NUMBER}"
+                }
+            }
+        }
+    }
+
+    post {
+        always {
+            cleanWs()
+        }
+    }
 }
