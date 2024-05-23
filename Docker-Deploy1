@@ -1,0 +1,22 @@
+pipeline {
+    agent any
+    stages {
+        stage('Checkout') {
+            steps {
+                git branch: 'master', url: 'https://github.com/Ravali08/java-war-deploy-example.git'
+            }
+        }
+
+        stage('Static_test') {
+            steps {
+              echo "testing in progress"
+            }
+        }
+
+        stage('Build') {
+            steps {
+                sh 'docker build -t java:v1 .'
+            }
+        }
+}
+}
