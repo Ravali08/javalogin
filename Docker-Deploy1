@@ -17,7 +17,7 @@ pipeline {
         stage('Push Docker Image') {
             steps {
                 script {
-                   sh "sudo docker push -t 767663789401.dkr.ecr.ap-south-1.amazonaws.com/private:Jenkins.1.0.${BUILD_NUMBER}"
+                   sh "sudo docker push 767663789401.dkr.ecr.ap-south-1.amazonaws.com/private:Jenkins.1.0.${BUILD_NUMBER}"
                  }
             }
         }
