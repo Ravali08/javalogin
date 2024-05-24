@@ -27,7 +27,7 @@ pipeline {
             steps {
                 script {
                    sh "docker rm -f my-app || true"
-                    sh "docker run -itd --name my-app -p 9001:8080 767663789401.dkr.ecr.ap-south-1.amazonaws.com/private:Jenkins.1.0.${BUILD_NUMBER}"
+                    sh "docker run -itd --name my-app -p 8000:8080 767663789401.dkr.ecr.ap-south-1.amazonaws.com/private:Jenkins.1.0.${BUILD_NUMBER}"
                 }
             }
         }
