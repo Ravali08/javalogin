@@ -17,7 +17,7 @@ pipeline {
         stage('Push Docker Image') {
             steps {
                 script {
-                    aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin 767663789401.dkr.ecr.ap-south-1.amazonaws.com
+                   sh "aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin 767663789401.dkr.ecr.ap-south-1.amazonaws.com"
                    sh "sudo docker push 767663789401.dkr.ecr.ap-south-1.amazonaws.com/private:Jenkins.1.0.${BUILD_NUMBER}"
                  }
             }
