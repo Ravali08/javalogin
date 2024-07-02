@@ -12,7 +12,7 @@ pipeline {
             steps {
                 script {
                     sh "mvn clean package"
-                    sh "docker buildx build --tag ravali218/test:1.0.${BUILD_NUMBER} ."
+                    sh "docker build --tag ravali218/test:1.0.${BUILD_NUMBER} ."
                 }
             }
         }
