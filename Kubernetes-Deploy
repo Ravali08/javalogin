@@ -9,15 +9,15 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 script {
-                    sh "sudo mvn clean package"
-                    sh "sudo docker buildx build -t ravali218/test:1.0.${BUILD_NUMBER} ."
+                    sh "mvn clean package"
+                    sh "docker buildx build -t ravali218/test:1.0.${BUILD_NUMBER} ."
                 }
             }
         }
         stage('Push Docker Image') {
             steps {
                 script {
-                   sh "sudo docker push ravali218/test:1.0.${BUILD_NUMBER}"
+                   sh "docker push ravali218/test:1.0.${BUILD_NUMBER}"
              }
                 }
             }
