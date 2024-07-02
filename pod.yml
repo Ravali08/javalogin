@@ -7,6 +7,6 @@ metadata:
 spec:
   containers:
     - name: myapp-container
-      image: ravali218/test:1.0.17  # Replace with your Docker image URL
+      image: ravali218/test:1.0.17 
       ports:
-        - containerPort: 80  # Example port your application listens on
+        - containerPort: 8080  
