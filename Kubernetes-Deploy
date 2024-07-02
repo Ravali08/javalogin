@@ -24,7 +24,6 @@ pipeline {
         
         stage('Deploy in K8S') {
             steps {
-                agent { label 'K8S' }
                 script {
                         sh 'kubectl apply -f deployment.yaml --validate=false'
                 }
