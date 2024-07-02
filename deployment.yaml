@@ -1,19 +1,12 @@
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: v1
+kind: Pod
 metadata:
-  name: my-tomcatnew
+  name: myapp-pod
+  labels:
+    app: myapp
 spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: my-tomcatnew
-  template:
-    metadata:
-      labels:
-        app: my-tomcatnew
-    spec:
-      containers:
-      - name: my-tomcatnew
-        image: bhargavilakamsani/tomcatnew:hello
-        ports:
-        - containerPort: 8080
+  containers:
+    - name: myapp-container
+      image: ravali218/test:1.0.17  # Replace with your Docker image URL
+      ports:
+        - containerPort: 80  # Example port your application listens on
