@@ -19,7 +19,7 @@ pipeline {
         stage('Push Docker Image') {
             steps {
                 script {
-                   sh "sudo docker push ravali218/test:1.0.${BUILD_NUMBER}"
+                   sh "docker push ravali218/test:1.0.${BUILD_NUMBER}"
              }
                 }
             }
